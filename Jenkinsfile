@@ -23,8 +23,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh 'docker build $PWD --tag="springboot_deploy/richy"'
-                sh 'docker run -u root -p 80:80 springboot_deploy/richy'
+                 agent { dockerfile true }
             }
         }
     }
