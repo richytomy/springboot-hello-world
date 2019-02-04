@@ -30,8 +30,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent { dockerfile true 
-                  args '-p 80:80'}
+            agent { dockerfile true }
+            {
+                  args '-p 80:80'
+            }
             steps {
                 sh' '
             }
