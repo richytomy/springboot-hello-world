@@ -35,7 +35,7 @@ pipeline {
             } }
 
             steps {
-                sh'curl http://localhost:80/'
+                sh'curl http://35.171.162.72:80/'
             }
         }
     }
