@@ -16,7 +16,7 @@ ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jar
 # Add the application's jar to the container
 ADD ${JAR_FILE} target/hello-world.jar
 
-RUN bash -c 'touch target/hello-world.jar'
+#RUN bash -c 'touch target/hello-world.jar'
 
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","target/hello-world.jar"]
