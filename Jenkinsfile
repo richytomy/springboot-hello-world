@@ -35,7 +35,7 @@ pipeline {
             } }
 
             steps {
-                sh' '
+                sh'curl http://localhost:80/ -v'
             }
         }
     }
