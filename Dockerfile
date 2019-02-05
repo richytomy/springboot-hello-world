@@ -17,4 +17,4 @@ ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} hello-world.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/hello-world.jar"]
+ENTRYPOINT ["java","/hello-world.jar"]
