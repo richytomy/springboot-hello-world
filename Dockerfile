@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM openjdk:8
+FROM openjdk:8-jdk-alpine
 
 # Add Maintainer Info
 LABEL maintainer="xxx@gmail.com"
@@ -19,4 +19,4 @@ ADD ${JAR_FILE} target/hello-world.jar
 RUN bash -c 'touch target/hello-world.jar'
 
 # Run the jar file 
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","target/hello-world.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","target/hello-world.jar"]
