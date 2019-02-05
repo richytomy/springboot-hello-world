@@ -35,7 +35,8 @@ pipeline {
             } }
 
             steps {
-                sh'curl http://localhost:80/ -v'
+                sh'wget http://localhost:80/'
+                sh'curl http://localhost:80/'
             }
         }
     }
