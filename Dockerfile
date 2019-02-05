@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM openjdk:8-jdk-alpine
+FROM dockerfile/java:oracle-java8
 
 # Add Maintainer Info
 LABEL maintainer="xxx@gmail.com"
@@ -11,10 +11,12 @@ VOLUME /tmp
 EXPOSE 80
 
 # The application's jar file
-ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jarhello-world
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} hello-world.jar
+ADD ${JAR_FILE} target/hello-world.jar
+
+RUN bash -c 'touch target/hello-world.jar'
 
 # Run the jar file 
-ENTRYPOINT ["java","/hello-world.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","target/hello-world.jar"]
