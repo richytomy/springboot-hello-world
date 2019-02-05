@@ -11,7 +11,7 @@ VOLUME /tmp
 EXPOSE 80
 
 # The application's jar file
-ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jarhello-world
+ARG JAR_FILE=target/hello-world-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} target/hello-world.jar
