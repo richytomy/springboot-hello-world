@@ -31,8 +31,7 @@ pipeline {
         }
         stage('Deploy') {
             agent { dockerfile             {
-                  args '-p 80:80'
-                  args  "--entrypoint='' "
+                  args  "--entrypoint='' -p 80:80"
             } }
 
             steps {
