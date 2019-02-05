@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM dockerfile/java:oracle-java8
+FROM openjdk:8
 
 # Add Maintainer Info
 LABEL maintainer="xxx@gmail.com"
