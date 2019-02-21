@@ -1,0 +1,19 @@
+job('BigFoot_seed') {
+    scm {
+        git('https://github.com/richytomy/springboot-hello-world.git')
+    }
+    triggers {
+        scm('H/15 * * * *')
+    }
+    steps {
+        shell('./mvnw clean package')
+        shell('docker build -t springboot .')
+        shell('docker run -d -it -p 80:8080 --name=test springboot')
+        shell('sleep 5')
+        shell('docker ps')
+        shell('curl -i http://localhost:80')
+        shell('docker stop test')
+        shell('docker rm test')
+        shell('docker rmi springboot')
+    }
+}
